@@ -9,7 +9,24 @@
 html, body{
      height: 100%;
      width: 100%;
+     cursor: none;
 }
+
+/*-------------------- Cursor section-------------------- */
+
+#cursor {
+     height: 2.5vmax;
+     width: 2.5vmax;
+     border-radius: 50%;
+     background-color: transparent;
+     position: fixed;
+     z-index: 9999;
+     border: 1px solid rgb(252, 248, 248);
+     mix-blend-mode: difference;
+     transform: translate(-50%, -50%); /*So that our arrow is at the center of the custom cursor and not at top left*/
+     pointer-events: none;
+}
+
 
 /*-------------------- Loader section-------------------- */
 #loader{
@@ -66,41 +83,44 @@ html, body{
      width: 20vmax;
      /* background-color: yellow; */
      animation-name: anime;
-     animation-duration: 1.4s;
+     animation-duration: 1.3s;
      animation-iteration-count: infinite;
      animation-delay: 1s;
      /* animation-fill-mode: forwards;
      animation-direction: alternate; */
+     font-weight: 300;
+     -webkit-text-stroke: 1px #fff;
 }
 
 @keyframes anime{
      0%{
+          font-family: "Silk Serif";
+          /* font-weight: 900; */
+          color: transparent;
+          -webkit-text-stroke: 1px #fff;
+          opacity: 1
+     }
+     47%{
+          font-family: "Silk Serif";
+          color: transparent;
+          -webkit-text-stroke: 1px #fff;
+          opacity: 0;
+     }
+     50%{
           font-family: "Plain Light";
-          -webkit-text-stroke: 0.1px #fff;
+          -webkit-text-stroke: 1px #fff;
           /* font-weight: 600; */
           color: #fff;
           opacity: 1;
      }
-     47%{
+     100%{
           font-family: "Plain Light";
-          -webkit-text-stroke: 0.1px #fff;
+          -webkit-text-stroke: 1px #fff;
           /* font-weight: 600; */
           color: #fff;
           opacity: 0;
      }
-     50%{
-          font-family: "Silk Serif";
-          /* font-weight: 900; */
-          color: transparent;
-          -webkit-text-stroke: 0.05px #fff;
-          opacity: 1
-     }
-     100%{
-          font-family: "Silk Serif";
-          color: transparent;
-          -webkit-text-stroke: 0.1px #fff;
-          opacity: 0;
-     }
+     
 }
 
 #main{
@@ -112,7 +132,84 @@ html, body{
 /*-------------------- page1 section-------------------- */
 #page1{
      position: relative;
-     background-color: #191919;
+     background-color: #151515;
      height: 100vh;
      width: 100%;
+}
+
+#page1 #nav{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     /* background-color: red; */
+     padding: 2.5vmax 8vmax;
+     overflow: hidden;
+}
+
+#nav #nav-part2{
+     display: flex;
+     /* background-color: yellow; */
+     align-items: center;
+     gap: 3vw;
+}
+
+#nav #nav-part2 h4{
+     /* background-color: yellow; */
+     display: flex;
+     align-items: center;
+     height: 50px;
+     width: 80px;
+     font-size: 1vmax;
+     font-weight: 500;
+}
+
+/* Page1 - Hero section */
+.hero{
+     /* background-color: red; */
+     width: 72%;
+     margin-left: 27%;
+     height: fit-content;   
+     overflow: hidden;  
+     display: flex;
+     align-items: center;
+}
+
+.hero:nth-child(2){
+     margin-top: 9vmax;
+}
+
+.hero h1{
+     font-size: 6.3vmax;
+     text-transform: uppercase;
+     position: relative;
+}
+
+
+#hero1 h1:before{
+      font-family: 'Silk Serif';
+      display: block;
+      content: '01';
+      font-size: 3vmax;
+      /* background-color: pink; */
+      position: absolute;
+      top: 0;
+      left: -20%;
+      height: fit-content;
+}
+
+
+#hero3 h2{
+     font-size: 6.3vmax;
+     text-transform: uppercase;
+}
+
+#hero3 h3{
+     font-size: 6.3vmax;
+     text-transform: uppercase;
+}
+
+.hover-style{
+     -webkit-text-stroke: 1px #fff;
+     color: transparent;
+     font-weight: 500;
 }
